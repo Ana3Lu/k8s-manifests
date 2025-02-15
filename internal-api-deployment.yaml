@@ -13,14 +13,25 @@ spec:
         app: internal-api
     spec:
       containers:
-        - name: internal-api
-          image: ana3lu/internal-api:1.0
-          ports:
-            - containerPort: 8081
-          env:
-            - name: SPRING_DATASOURCE_URL
-              value: "jdbc:postgresql://postgres-service:5432/postgres"
-            - name: SPRING_DATASOURCE_USERNAME
-              value: admin
-            - name: SPRING_DATASOURCE_PASSWORD
-              value: password
+      - name: internal-api
+        image: ana3lu/internal-api:1.0
+        env:
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: POSTGRES_USER
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: POSTGRES_PASSWORD
+        - name: POSTGRES_DB
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: POSTGRES_DB
+        - name: POSTGRES_HOST
+          value: postgres
+        ports:
+        - containerPort: 8081

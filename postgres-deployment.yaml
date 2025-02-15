@@ -14,20 +14,17 @@ spec:
     spec:
       containers:
         - name: postgres
-          image: postgres:latest
-          env:
-            - name: POSTGRES_DB
-              value: postgres
-            - name: POSTGRES_USER
-              value: admin
-            - name: POSTGRES_PASSWORD
-              value: password
+          image: postgres:14
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - configMapRef:
+                name: postgres-secret
           ports:
             - containerPort: 5432
           volumeMounts:
             - mountPath: /var/lib/postgresql/data
-              name: postgres-storage
+              name: postgresdata
       volumes:
-        - name: postgres-storage
+        - name: postgresdata
           persistentVolumeClaim:
-            claimName: postgres-pvc
+            claimName: postgres-volume-claim
