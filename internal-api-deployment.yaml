@@ -1,26 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: api
+  name: internal-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: api
+      app: internal-api
   template:
     metadata:
       labels:
-        app: api
+        app: internal-api
     spec:
       containers:
-        - name: api
-          image: ana3lu/api:1.0
+        - name: internal-api
+          image: ana3lu/internal-api:1.0
           ports:
-            - containerPort: 8080
+            - containerPort: 8081
           env:
             - name: SPRING_DATASOURCE_URL
-              value: jdbc:postgresql://postgres:5432/postgres
+              value: "jdbc:postgresql://postgres-service:5432/postgres"
             - name: SPRING_DATASOURCE_USERNAME
-              value: postgres
+              value: admin
             - name: SPRING_DATASOURCE_PASSWORD
               value: password

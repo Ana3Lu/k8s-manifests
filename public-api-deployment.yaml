@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: public-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: public-api
+  template:
+    metadata:
+      labels:
+        app: public-api
+    spec:
+      containers:
+        - name: public-api
+          image: ana3lu/public-api:1.0
+          ports:
+            - containerPort: 8080
+          env:
+            - name: INTERNAL_API_URL
+              value: "http://internal-api-service:8081"
