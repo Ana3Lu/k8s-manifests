@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: internal-api-service
+  name: internal-api
 spec:
   selector:
     app: internal-api
