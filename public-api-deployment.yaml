@@ -20,3 +20,8 @@ spec:
           env:
             - name: INTERNAL_API_URL
               value: "http://internal-api-service:8081"
+          resources:
+            requests:
+              cpu: "100m"
+            limits:
+              cpu: "500m"

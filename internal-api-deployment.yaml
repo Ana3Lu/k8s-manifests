@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: internal-api
-        image: ana3lu/internal-api:1.0
+        image: ana3lu/internal-api:1.1.1
         env:
         - name: POSTGRES_USER
           valueFrom:
@@ -32,6 +32,11 @@ spec:
               name: postgres-secret
               key: POSTGRES_DB
         - name: POSTGRES_HOST
-          value: postgres
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: POSTGRES_HOST
+        - name: SPRING_PROFILES_ACTIVE
+          value: prod
         ports:
         - containerPort: 8081
