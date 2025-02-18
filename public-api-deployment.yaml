@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: public-api
-          image: ana3lu/public-api:1.1.1
+          image: ana3lu/public-api:1.1.7
           ports:
             - containerPort: 8080
           env:

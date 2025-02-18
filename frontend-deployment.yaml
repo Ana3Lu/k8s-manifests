@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: ana3lu/frontend:1.1.1
+          image: ana3lu/frontend:1.1.4
           ports:
             - containerPort: 80
