@@ -6,13 +6,13 @@ spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: public-api # 👈 Nombre del Deployment que deseas escalar
-  minReplicas: 2  # 👈 Número mínimo de pods
-  maxReplicas: 5  # 👈 Número máximo de pods
+    name: public-api 
+  minReplicas: 2  
+  maxReplicas: 5  
   metrics:
     - type: Resource
       resource:
         name: cpu
         target:
           type: Utilization
-          averageUtilization: 75 # 👈 Escalará cuando el uso de CPU supere el 75%
+          averageUtilization: 30
