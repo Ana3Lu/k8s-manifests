@@ -1,5 +1,5 @@
 resources:
-  - public-api
-  - postgres
-  - frontend
-  - internal-api
+  - public-api/
+  - postgres/
+  - frontend/
+  - internal-api/
