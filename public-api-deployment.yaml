@@ -14,14 +14,17 @@ spec:
     spec:
       containers:
         - name: public-api
-          image: ana3lu/public-api:1.1.7
+          image: ana3lu/public-api:1.1.9
           ports:
-            - containerPort: 8080
+            - name: http
+              containerPort: 8080
           env:
             - name: INTERNAL_API_URL
-              value: "http://internal-api-service:8081"
+              value: "http://internal-api:8081"
           resources:
             requests:
-              cpu: "100m"
+              cpu: "200m"
+              memory: "160Mi"
             limits:
-              cpu: "500m"
+              cpu: "300m"
+              memory: "250Mi"
