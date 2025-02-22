@@ -1,0 +1,5 @@
+resources:
+  - public-api
+  - postgres
+  - frontend
+  - internal-api
