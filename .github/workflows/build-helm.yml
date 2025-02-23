@@ -1,0 +1,47 @@
+name: Build and Publish Helm Chart
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-helm:
+    runs-on: ubuntu-latest
+
+    env:
+      HELM_REPO: https://github.com/Ana3Lu/helm-charts-public-api.git
+      BRANCH_HELM: 'gh-pages'
+
+    steps:
+      - name: Checkout Helm Manifiestos Repository
+        uses: actions/checkout@v4
+
+      - name: Install Helm
+        run: |
+          curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+
+      - name: Clone Helm Charts Repository (gh-pages branch)
+        run: |
+          git clone --single-branch --branch ${{ env.BRANCH_HELM }} ${{ env.HELM_REPO }} helm-charts
+
+      - name: Package Helm Chart
+        run: |
+          cd helm-chart-api/public-api
+          helm package . -d ../../helm-charts/charts/
+
+      - name: Update Helm Repo Index
+        run: |
+          cd helm-charts
+          helm repo index . --merge index.yaml
+
+      - name: Commit and Push to gh-pages in helm-charts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd helm-charts
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add charts/ index.yaml
+          git commit -m "Update Helm chart for public-api - ${{ github.sha }}"
+          git push origin ${{ env.BRANCH_HELM }}
