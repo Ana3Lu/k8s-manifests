@@ -37,7 +37,7 @@ jobs:
 
       - name: Commit and Push to gh-pages in helm-charts
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
         run: |
           cd helm-charts
           git config --local user.email "action@github.com"
