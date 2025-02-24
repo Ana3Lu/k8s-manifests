@@ -33,7 +33,7 @@ jobs:
       - name: Update Helm Repo Index
         run: |
           cd helm-charts
-          helm repo index . --merge index.yaml
+          helm repo index . --url https://Ana3Lu.github.io/helm-charts-public-api/ --merge index.yaml
 
       - name: Commit and Push to gh-pages in helm-charts
         env:
