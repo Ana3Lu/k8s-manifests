@@ -3673,3 +3673,7 @@
 2025-02-23 20:24:00,007 INFO o.a.j.r.Summariser: summary = 1631777788 in 107:32:22 = 4214.9/s Avg:     0 Min:     0 Max:     0 Err: 1631777788 (100.00%)
 2025-02-23 20:24:30,000 INFO o.a.j.r.Summariser: summary + 933426 in 00:00:30 = 31121.5/s Avg:     0 Min:     0 Max:     0 Err: 933426 (100.00%) Active: 200 Started: 200 Finished: 0
 2025-02-23 20:24:30,000 INFO o.a.j.r.Summariser: summary = 1632711214 in 107:32:52 = 4217.0/s Avg:     0 Min:     0 Max:     0 Err: 1632711214 (100.00%)
+2025-02-23 20:25:00,002 INFO o.a.j.r.Summariser: summary + 846567 in 00:00:30 = 28218.9/s Avg:     0 Min:     0 Max:     0 Err: 846567 (100.00%) Active: 200 Started: 200 Finished: 0
+2025-02-23 20:25:00,003 INFO o.a.j.r.Summariser: summary = 1633557781 in 107:33:22 = 4218.9/s Avg:     0 Min:     0 Max:     0 Err: 1633557781 (100.00%)
+2025-02-23 20:25:30,002 INFO o.a.j.r.Summariser: summary + 840408 in 00:00:30 = 28013.6/s Avg:     0 Min:     0 Max:     0 Err: 840408 (100.00%) Active: 200 Started: 200 Finished: 0
+2025-02-23 20:25:30,002 INFO o.a.j.r.Summariser: summary = 1634398189 in 107:33:52 = 4220.7/s Avg:     0 Min:     0 Max:     0 Err: 1634398189 (100.00%)
