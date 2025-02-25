@@ -10,7 +10,7 @@ image:
   # This sets the pull policy for images.
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "77267a60d4ae3ca1aa10bb3d680fd4c33516a5f6"
+  tag: "c7f2538e933a9bc8431a5e64008f89844efb4fb8"
 # This is for the secrets for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 imagePullSecrets: []
 # This is to override the chart name.
@@ -91,25 +91,25 @@ startupProbe:
   httpGet:
     path: /health
     port: 8080
-  initialDelaySeconds: 600  # Espera 5 minutos antes de hacer la primera prueba
-  periodSeconds: 20         # Prueba cada 20 segundos
-  failureThreshold: 10 
-livenessProbe: 
-  httpGet:
-    path: /health
-    port: 8080
-  initialDelaySeconds: 60 
-  periodSeconds: 20          
-  timeoutSeconds: 10          
-  failureThreshold: 10  
-readinessProbe: 
+  initialDelaySeconds: 600 # Espera 5 minutos antes de hacer la primera prueba
+  periodSeconds: 20 # Prueba cada 20 segundos
+  failureThreshold: 10
+livenessProbe:
   httpGet:
     path: /health
     port: 8080
   initialDelaySeconds: 60
-  periodSeconds: 20         
-  timeoutSeconds: 10          
-  failureThreshold: 10   
+  periodSeconds: 20
+  timeoutSeconds: 10
+  failureThreshold: 10
+readinessProbe:
+  httpGet:
+    path: /health
+    port: 8080
+  initialDelaySeconds: 60
+  periodSeconds: 20
+  timeoutSeconds: 10
+  failureThreshold: 10
 # This section is for setting up autoscaling more information can be found here: https://kubernetes.io/docs/concepts/workloads/autoscaling/
 autoscaling:
   name: public-api-hpa
