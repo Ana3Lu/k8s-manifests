@@ -90,7 +90,7 @@ resources:
 livenessProbe: 
   httpGet:
     path: /api/names
-    port: http
+    port: 8080
   initialDelaySeconds: 300  
   periodSeconds: 20          
   timeoutSeconds: 10          
@@ -98,7 +98,7 @@ livenessProbe:
 readinessProbe: 
   httpGet:
     path: /api/names
-    port: http
+    port: 8080
   initialDelaySeconds: 300  
   periodSeconds: 20         
   timeoutSeconds: 10          
