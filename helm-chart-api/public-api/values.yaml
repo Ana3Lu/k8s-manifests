@@ -91,16 +91,18 @@ livenessProbe:
   httpGet:
     path: /api/names
     port: http
-  initialDelaySeconds: 60  
-  periodSeconds: 20        
-  failureThreshold: 5 
+  initialDelaySeconds: 180   # Espera 3 minutos antes de la primera verificación
+  periodSeconds: 20          # Chequea cada 10s
+  timeoutSeconds: 5          # Da hasta 5s para responder antes de fallar
+  failureThreshold: 5  
 readinessProbe: 
   httpGet:
     path: /api/names
     port: http
-  initialDelaySeconds: 60  
-  periodSeconds: 20        
-  failureThreshold: 5 
+  initialDelaySeconds: 180   # Espera 3 minutos antes de la primera verificación
+  periodSeconds: 20          # Chequea cada 10s
+  timeoutSeconds: 5          # Da hasta 5s para responder antes de fallar
+  failureThreshold: 5   
 # This section is for setting up autoscaling more information can be found here: https://kubernetes.io/docs/concepts/workloads/autoscaling/
 autoscaling:
   name: public-api-hpa
