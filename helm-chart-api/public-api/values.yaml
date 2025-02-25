@@ -91,7 +91,7 @@ startupProbe:
   httpGet:
     path: /health
     port: 8080
-  initialDelaySeconds: 600  # Espera 5 minutos antes de hacer la primera prueba
+  initialDelaySeconds: 360  # Espera 5 minutos antes de hacer la primera prueba
   periodSeconds: 20         # Prueba cada 20 segundos
   failureThreshold: 10 
 livenessProbe: 
