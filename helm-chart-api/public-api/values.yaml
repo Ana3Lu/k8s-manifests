@@ -91,9 +91,10 @@ startupProbe:
   httpGet:
     path: /api/names
     port: 8080
-  initialDelaySeconds: 300  # Espera 3 minutos antes de hacer la primera prueba
+  initialDelaySeconds: 300  # Espera 5 minutos antes de hacer la primera prueba
   periodSeconds: 20         # Prueba cada 20 segundos
   failureThreshold: 10 
+
 livenessProbe: 
   httpGet:
     path: /api/names
@@ -102,6 +103,7 @@ livenessProbe:
   periodSeconds: 20          
   timeoutSeconds: 10          
   failureThreshold: 10  
+
 readinessProbe: 
   httpGet:
     path: /api/names
