@@ -70,4 +70,4 @@ jobs:
         run: |
           helm repo add my-public-api https://ana3lu.github.io/helm-charts-public-api/
           helm repo update
-          helm upgrade --install public-api my-public-api/public-api --namespace $NAMESPACE --force
+          helm upgrade --install public-api ./helm-chart-api/public-api --namespace $NAMESPACE --force
