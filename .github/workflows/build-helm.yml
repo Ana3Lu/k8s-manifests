@@ -24,10 +24,6 @@ jobs:
         run: |
           git clone --single-branch --branch ${{ env.BRANCH_HELM }} ${{ env.HELM_REPO }} helm-charts
 
-      - name: Copy Updated values.yaml to Helm Charts Repo
-        run: |
-          cp helm-chart-api/public-api/values.yaml helm-charts/public-api/values.yaml
-
       - name: Package Helm Chart
         run: |
           cd helm-charts/public-api
