@@ -29,10 +29,6 @@ jobs:
         run: |
           rm -f helm-charts/charts/public-api-*.tgz
 
-      - name: Copy Updated values.yaml to Helm Charts Repo
-        run: |
-          cp helm-chart-api/public-api/values.yaml helm-charts/public-api/values.yaml
-
       - name: Package Helm Chart
         run: |
           cd helm-chart-api/public-api
