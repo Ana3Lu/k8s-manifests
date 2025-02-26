@@ -26,8 +26,8 @@ jobs:
 
       - name: Package Helm Chart
         run: |
-          cd helm-charts/public-api
-          helm package . -d ../charts/
+          cd helm-chart-api/public-api
+          helm package . -d ../../helm-charts/charts/
 
       - name: Update Helm Repo Index
         run: |
