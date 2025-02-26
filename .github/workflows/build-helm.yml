@@ -42,7 +42,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git remote set-url origin https://x-access-token:${{ secrets.GH_ACCESS_TOKEN }}@github.com/Ana3Lu/helm-charts-public-api.git
-          git add charts/ public-api/values.yaml index.yaml
+          git add charts/ index.yaml
           git commit -m "Update Helm chart for public-api - ${{ github.sha }}"
           git push origin ${{ env.BRANCH_HELM }}
 
